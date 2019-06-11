@@ -55,13 +55,13 @@
 ```
 
 ### HTML 요소
-- 제목 요소: <h1>~<h6>
-- 문단 요소: <p>
-- 강조, 분위기 전환: <b>, <i>, <strong>, <em>
-- 줄바꿈, 수평선 삽입: <br>, <hr>
-- 목록 요소: <ul>, <ol>, <li>, <dl>, <dt>, <dd>
-- 하이퍼링크: <a href="" target="" title="">
-- 이미지: <img src="" alt="">
+- 제목 요소: `<h1>~<h6>`
+- 문단 요소: `<p>`
+- 강조, 분위기 전환: `<b>`, `<i>`, `<strong>`, `<em>`
+- 줄바꿈, 수평선 삽입: `<br>`, `<hr>`
+- 목록 요소: `<ul>`, `<ol>`, `<li>`, `<dl>`, `<dt>`, `<dd>`
+- 하이퍼링크: `<a href="" target="" title="">`
+- 이미지: `<img src="" alt="">`
 
 ### CSS 개념 및 정의
 - CSS: Cascading Style Sheet, 스타일을 정의하기 위한 언어
