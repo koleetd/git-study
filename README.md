@@ -33,3 +33,45 @@
 - 원격 저장소 등록: `git remote add origin {주소}`
 - 발행하기: `git push origin master`
 - 일반 저장소에서 호스팅 저장소로 변경하기: [Youtube 영상](https://youtu.be/SNnfbf-LJz4)
+
+
+## Day 2
+
+### HTML 기본 구조
+- DTD 선언
+- html 요소
+- head 요소 (문서 제목 및 메타데이터 선언)
+```html
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    
+</body>
+</html>
+```
+
+### HTML 요소
+- 제목 요소: <h1>~<h6>
+- 문단 요소: <p>
+- 강조, 분위기 전환: <b>, <i>, <strong>, <em>
+- 줄바꿈, 수평선 삽입: <br>, <hr>
+- 목록 요소: <ul>, <ol>, <li>, <dl>, <dt>, <dd>
+- 하이퍼링크: <a href="" target="" title="">
+- 이미지: <img src="" alt="">
+
+### CSS 개념 및 정의
+- CSS: Cascading Style Sheet, 스타일을 정의하기 위한 언어
+- 최신 표준: CSS3로 불리는 신규 모듈의 집합
+- 중요한 개념: 겹칩, 상속, 우선순위
+- 레이아웃 설계: float, position, flex 등의 속성 필요
+- 기본 문법: 선택자 & 선언부로 구성
+```css
+    p {
+        color: green;
+        background-color; yellow;
+    }
+```
