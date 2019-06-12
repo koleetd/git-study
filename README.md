@@ -75,3 +75,5 @@
         background-color; yellow;
     }
 ```
+
+## Day 3

@@ -1,0 +1,26 @@
+@charset "utf-8";
+body {
+    background-color: #ffc;
+    color: green;
+}
+.multi.note{
+    color: gray;
+}
+h1.multi {
+    color: purple;
+}
+.multi {
+    color: hotpink;
+}
+h1 {
+    color: red;
+}
+/* * {
+    color: blue;
+} */
+ul {
+    color: tomato;
+}
+a {
+    color: inherit;
+}

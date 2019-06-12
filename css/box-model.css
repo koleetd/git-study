@@ -1,0 +1,13 @@
+@charset "utf-8";
+
+.box {
+    background-color: aqua;
+    /* display: inline; */
+    display: block;
+    width: 500px; 
+    height: 100px;
+    border: 10px solid red;
+    padding: 20px;
+    margin: 50px auto;
+    box-sizing: border-box;
+}
