@@ -125,7 +125,7 @@ git config --list  # 입력 내용 확인
 - 공백 추가하기
     * `&nbsp;`: non-breakable space → 사용 비권장
     * `<div>`, `<span>` 등으로 묶은 다음 CSS style로 수정
-        ex. `<span style="margin-right: 50px">`
+        ex. `<span style="margin-right: 50px">`  
         ※ `<p>` 안에는 `<span>`만 사용가능
     * `<br>`(HTML4.0): Line break (empty element) = `<br />`(XHTML1.0)
 - 인용: `<q cite="isbn: ,url: ">`
@@ -264,6 +264,7 @@ $ git commit -m "6월 11일 오전 수업 내용
     * 나중에 설정할수록 우선순위 ↑
     * 동일한 우선순위에서 `!important` 적용 시 우선순위 ↑
     * 우선순위가 밀리면 검사 시 취소선으로 표시
+- 선택자 grouping: `선택자1, 선택자2, 선택자3 {선언}`
 
 ### CSS-색상
 - 색상 단축 표기법: 16진법 6자리 헥사코드를 3자리로 단축  
@@ -287,7 +288,7 @@ $ git commit -m "6월 11일 오전 수업 내용
     * `border-box`: width=content+border+padding, 즉 box 너비는 width와 margin만 더함
         + 화면의 크기가 달라지더라도 border와 padding을 포함할 수 있음
 - overflow: 박스크기가 넘치면 scroll 표시
-    * overflow 표시하는 순간 독립적인 BFC 생성: 상속을 잃어버림
+    * overflow 표시하는 순간 독립적인 BFC 생성: 상속을 잃어버림  
         → 부모 영역에도 overflow 속성을 사용해야 함
     * `overflow: auto;`: content 크기가 크면 scroll 표시, 작으면 표시 X
 - 박스 임시로 숨기기
@@ -296,10 +297,64 @@ $ git commit -m "6월 11일 오전 수업 내용
     * `display: none;`: 영역을 없는 것처럼 숨김, 사용 시 주의
 - `background-image: linear-gradient(각도deg,색상1,색상2);`
 
+### CSS-레이아웃
+- Normal flow: 마크업 순서대로 레이아웃을 정렬한 것
+- 자주 쓰는 클래스 이름: header, main, aside, footer, wrapper, container ...
+- float: 부모 개체의 왼쪽 또는 오른쪽으로 배치 가능 (가운데 불가)
+    * float 개체를 제외한 영역에 별개의 line box를 새로 형성
+    * 영역 자체는 다른 형제 개체와 겹칠 수 있음
+    * 형제 개체의 컨텐츠는 line box 안, 즉 float 개체와 겹치지 않게 배치
+    * float 영역이 부모 개체 영역보다 커지면 바깥으로 튕겨나감
+    * 부모 개체에 `overflow: hidden;` 추가 시 float 높이로 자동 조절
+    * `clear: both;`: float 영역과 겹치지 않도록 block에 margin 강제 추가 → 요즘 잘 안 씀
+- flex: 자유롭게 block 배치하기 위한 요소
+    * 부모 개체 flex-container, 자식 개체 flex-item 필요
+    * 부모 개체에 `display: flex;` 코드 추가
+    * 순서: default는 마크업 순서대로 행방향 배치(`order=0`)  
+        → 부모 개체에 `flex-direction: row/column reverse` 등으로 조절 가능  
+        → 자식 개체에 `order: -1` 추가 시 이 개체가 먼저 배치됨
+    * 가로 여백: `justify-content: space-between/space-around` 등으로 조절
+    * 세로 정렬: `align-items` 로 조절 (default: stretch, 부모와 같음)
+    * 부모 개체보다 자식 개체의 영역이 크더라도 비율(flex shrink)대로 조절해서 레이아웃 유지  
+        → 원하지 않을 경우 부모 개체에 `flex-wrap: wrap;` 추가
+- grid: 구애받지 않고 자유롭게 배치할 수 있음... But IE 미지원
+- height에는 `%` 단위 사용 불가! `vh` 단위 주로 사용 (browser height의 백분율)
+
+### CSS-컨텐츠 배치
+- 백그라운드 이미지 삽입
+    * 정렬: `background-position`
+        + 백분율 사용 시 개체의 width, height 크기 기준!  
+            ex. `body`의 컨텐츠가 없을 경우 height 50% = 0 * 50% = 0px
+        + center`: = 50%
+    * 위치 고정: `background-attachment: fixed;`
+        + 크기는 viewport size 기준
+    * 보통 축약 표현으로 설정
+        + ex. `background: yellow url("../img/chocolate-islands.jpg") 50% 50% /cover fixed;`
+        + background-size 앞에는 `/` 붙임
+    * 이미지 로딩 에러 콜백 위해 background-color 설정 권장
+- `border-radius`: 테두리의 모양 바꾸기
+    * `border-radius: 50%;`: 테두리가 원이 됨
+- 컨텐츠 자체도 anonymous inline box를 가짐: `display: flex;` 적용 가능
+- `.클래스:hover`: 마우스 올렸을 때의 행동
+
+### HTML-레이아웃
+- HTML5 신규 태그: `<header>`, `<main>`, `<aside>`, `<footer>`
+    * 4단 레이아웃에 가장 많이 씀: `<div>`보다 의미부여 할 수 있어 유리
+    * `<body>`에도 쓸 수 있고 `<section>`에도 쓸 수 있음
+    * Emmet `header.header{헤더}+div.wrapper(>main.main{컨텐츠}+aside.aside{사이드바})+footer.footer{푸터}`
+
 ### VS code 단축키
 - 코드 위치 변경: 영역 선택 → `Alt+이동화살표`
-- Emmet `[]`: 태그 내 속성 지정  
+- Emmet `[]`: 태그 내 속성 지정, `{}`: 태그 안 컨텐츠 지정  
     ex. `ul>li*4>a[href="#"]{목록$}`
 - Emmet `태그.클래스`: 클래스를 가진 태그 생성
 - Emmet `w500px`: `width: 500px;`
 - Emmet `m0`: `margin: 0;`
+
+### 기타 Tip
+- naming rule: Pascal, Camel, Snake, Kebob case
+- CSS project naming rule: OOCSS, SMACSS, BEM
+
+### 유용한 사이트
+- CSS flex trick: https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+- CSS flex 익히기 게임: https://flexboxfroggy.com/

@@ -1,0 +1,37 @@
+@charset "utf-8";
+
+body {
+    margin: 0;
+}
+
+/* 레이아웃 */
+.header, .wrapper, .footer {
+    width: 1000px;
+    margin: 0 auto;
+}
+.header {
+    background-color: yellow;
+    height: 15vh;
+}
+.wrapper {
+    background-color: blue;
+    overflow: hidden;
+}
+.main {
+    background-color: rgba(0,0,0,0.5);
+    height: 50vh;
+    width: 700px;
+    float: right;
+}
+.aside {
+    background-color: rgba(255,0,0,0.5);
+    height: 20vh;
+    float: right;
+    width: 300px;
+}
+.footer {
+    background-color: orange;
+    height: 15vh;
+    /* clear: both;
+    margin-top: 400px; */
+}

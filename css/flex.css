@@ -1,0 +1,41 @@
+@charset "utf-8";
+
+body {
+    margin: 0;
+}
+
+/* 레이아웃 */
+.header, .wrapper, .footer {
+    width: 1000px;
+    margin: 0 auto;
+}
+.header {
+    background-color: yellow;
+    height: 15vh;
+}
+.wrapper {
+    background-color: blue;
+    display: flex;
+    /* flex-direction: row-reverse; */
+    flex-direction: row;
+    height: 70vh;
+    justify-content: space-between;
+    /* justify-content: space-evenly; */
+    flex-wrap: wrap;
+}
+.main {
+    background-color: rgba(0,255,0,0.7);
+    /* height: 50vh; */
+    width: 600px;
+}
+.aside {
+    background-color: rgba(255,0,0,0.7);
+    /* height: 20vh; */
+    width: 500px;
+    /* margin-right: auto; */
+    order: -1;
+}
+.footer {
+    background-color: orange;
+    height: 15vh;
+}
