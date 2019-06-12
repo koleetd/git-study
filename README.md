@@ -77,3 +77,30 @@
 ```
 
 ## Day 3
+
+### CSS 선택자 및 박스모델
+- 전체 선택자 (`*`)
+- 요소 선택자 (`tag명`)
+- class 선택자 (`.class명`)
+- id 선택자 (`#id명`)
+- `width`, `height` 속성: 박스의 가로 및 세로 크기
+- `border`: 테두리
+- `padding`: 안쪽 여백
+- `margin`: 바깥쪽 여백 (`auto` 사용 가능)
+- `box-sizing`: `content-box`, `border-box`
+- `overflow`: box 크기와 컨텐츠 크기
+
+### 레이아웃 관련 속성
+- `float`
+> `float` 속성은 `left`와 `right` 값을 사용할 수 있으며 일반적인 흐름(Normal flow)을 벗어나서 화면 위에 떠 있는 형태로 만들 수 있다. `left`나 `right` 값은 부모 영역을 기준으로 배치되며 각각 *line box* 안에서 배치된다는 특징이 있다. 또한 부모 요소는 float 된 높이를 잃어버리기 때문에 부모 요소에 `overflow: hidden`을 지정하여 문제를 해결할 수 있다.
+- `display: flex;` ([CSS Tricks 참고자료](https://css-tricks.com/snippets/css/a-guide-to-flexbox/))
+> *유연한 박스 모델*로 불린다. 배치하고자 하는 요소의 부모 요소에 `display: flex;`를 지정한다. 이 때 flex가 지정된 요소의 자식 요소는 *flex item*의 역할을 담당하게 되고 `flex-direction` 속성에 지정한 방향으로 배치된다.
+
+### 배경 관련 속성
+- `background-color`: 배경 색상
+- `background-image`: 배경 이미지
+- `background-repeat`: 배경 이미지 반복 여부
+- `background-position`: 배경 이미지 위치
+- `background-attachment`: 배경 이미지 고정 여부
+- `background-size`: 배경 이미지 크기
+- `background`: 배경 관련 단축 표기법
