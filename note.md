@@ -358,3 +358,51 @@ $ git commit -m "6월 11일 오전 수업 내용
 ### 유용한 사이트
 - CSS flex trick: https://css-tricks.com/snippets/css/a-guide-to-flexbox/
 - CSS flex 익히기 게임: https://flexboxfroggy.com/
+
+
+## Day 4
+
+### CSS-Position
+- 변경이 적은 레이아웃 배치 시 사용하는 것이 좋음
+- `static`: Position 기본값, Normal flow
+- `relative`: Normal flow 따라가고 영역 유지, 위치만 바뀜
+    * `top`, `left` 사용하여 기준점 설정
+    * 부모 요소는 `static`이라면 부모는 그 자리에 있고 자식만 움직임
+- `absolute`: Normal flow 벗어남, layer block 새로 생성하며 위치 바뀜
+    * 부모 요소 중 Position이 `static`이 아닌 최근접 요소 or `body`를 기준점으로 가짐  
+        → 보통 부모 요소는 `relative` 설정
+    * 정가운데 배치: top, right, bottom, left: 0, margin: auto 설정
+    * 사용 예시: 로그인 버튼
+- `fixed`: `absolute`와 유사하나 Viewport 기준 → 항상 화면 일정 위치에 고정
+    * 사용 예시: 우측 글쓰기, 최근 열람 상품 등
+- `sticky`: 엑셀 틀고정과 유사한 기능 ([참고 사이트](https://css-tricks.com/position-sticky-2/))
+    * `relative`+`fixed` 장점 결합
+    * IE11은 지원하지 않음...
+
+### CSS-Animation
+- 참고사이트: https://seulbinim.github.io/WSA/animation.html#keyframes
+- Keyframe 선언: `@keyframes` (at sign rule)
+    * Call 필수 요소: `animation-name`, `animation-duration`
+    * default: 애니메이션 재생 전 상태로 돌림...
+    * 애니메이션 변경 상태 유지: `animation-fill-mode`
+    * 딜레이, 시간차: `animation-delay`
+    * 줄인 표현: `animation 이름 시간 기타속성`
+- 이동, 형태 변형: `transform`
+    * 속성 여러 개 사용 시에는 `transform: 속성1 속성2 ... ;` 로 표시
+- 요소 속성의 동적 전환을 자연스럽게 하는 효과: `transition`
+    * 전환할 효과 지정: `transition-property: 효과명1, 효과명2, ...` 
+    * 전환 시간: `transition-duration`
+    * 효과 별 delay 시간: `transition-delay 효과1시간, 효과2시간, ...`
+    * 단축표현: `transition all 1s`
+    * `text-align` 등 숫자가 아닌 값을 갖는 효과에는 적용 불가
+
+
+### CSS 기타
+- `em`: 부모 개체에서 상속한 글자 상대 크기
+- `rem`: root 개체에서 상속한 글자 상대 크기
+- `white-space: nowrap;`: 개체 크기에 따른 줄바꿈 방지
+
+### 유용한 사이트
+- Can I use: https://www.caniuse.com
+    * HTML, CSS 브라우저 별 제공 여부 확인
+    * 자바스크립트 사용 대안 기능: Polyfill 검색
