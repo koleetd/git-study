@@ -104,3 +104,25 @@
 - `background-attachment`: 배경 이미지 고정 여부
 - `background-size`: 배경 이미지 크기
 - `background`: 배경 관련 단축 표기법
+
+
+## Day 4
+
+### Position 속성
+- `static`: 기본값
+- `relative`: 상대배치, Normal flow
+- `absolute`: 절대배치, `static` 아닌 상위 요소 기준
+- `fixed`: 고정배치, Viewport 기준
+- `sticky`: 상대배치+고정배치 (CSS3, IE11 지원불가)
+
+### 애니메이션 속성
+- `animation`
+    * 필수: `animation-name`(이름), `animation-duration`(시간)
+    * 선택: `animation-fill-mode`, `animation-delay` 등
+- `transform`
+    * `translate`: 이동
+    * `scale`: 확대/축소
+    * `rotate`: 회전
+- `transition`
+    * 필수: `transition-property`(효과지정), `transition-duration`(시간)
+    * 선택: `transition-delay` 등
