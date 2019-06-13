@@ -395,12 +395,57 @@ $ git commit -m "6월 11일 오전 수업 내용
     * 효과 별 delay 시간: `transition-delay 효과1시간, 효과2시간, ...`
     * 단축표현: `transition all 1s`
     * `text-align` 등 숫자가 아닌 값을 갖는 효과에는 적용 불가
-
-
+    
 ### CSS 기타
 - `em`: 부모 개체에서 상속한 글자 상대 크기
 - `rem`: root 개체에서 상속한 글자 상대 크기
 - `white-space: nowrap;`: 개체 크기에 따른 줄바꿈 방지
+
+### hexo: 정적 웹페이지 생성 툴
+- 웹페이지: https://hexo.io/ko/index.html
+- [node.js](https://nodejs.org/ko/) 필요
+- 특징
+    * Markdown 지원
+    * 웹 프로그래밍에 대한 기본 지식 필요
+    * 작업 환경 CLI 방식
+- 설치: `npm`이용 (node package manager)
+```
+$ npm install -g hexo-cli
+hexo init
+npm install
+```
+- 로컬서버에서 테스트: `hexo server`
+- 테마 변경: https://github.com/mulder21c/hexo-theme-amorfati/tree/master/documents/ko 참고
+    * 설치 완료 후 _config.yml 에서 `theme: amorfati` 로 변경
+    * themes/amorfati/_config.yml에서 `hero`: 타이틀 영역
+```yml
+# Hero - Please specify width and height for structured data
+hero:
+  url: 
+  width:
+  height:
+```
+- 새 포스트 작성: `hexo new 포스트제목`
+    * front matter: title, date, tags, categories, thumbnail 등 (테마 설명 참고)
+    * Markdown 본문에 포스트 본문 입력
+    * 재구동 필요 없음
+
+- github 연동: `_config.yml` 수정
+    * 별도 push 필요 없음
+    * deployer 설치: `npm install hexo-deployer-git --save`
+    * `hexo deploy` 실행
+```yml
+# URL
+## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
+url: https://koleetd.github.io/
+
+# Deployment
+## Docs: https://hexo.io/docs/deployment.html
+deploy:
+  type: git
+  repo: https://github.com/koleetd/koleetd.github.io.git
+  branch: master
+```
 
 ### 유용한 사이트
 - Can I use: https://www.caniuse.com
